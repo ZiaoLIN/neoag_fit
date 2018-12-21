@@ -9,7 +9,7 @@ neoantigen <- read.table(tissue_path, sep = "\t", header =TRUE, fill = TRUE)
 neoantigen_affinity_select <- neoantigen[neoantigen$affinity_mut < 500, ]
 neoantigen_affinity_select <- neoantigen_affinity_select[neoantigen_affinity_select$neoORF_status=="mut|no", ]
 #exclude peptides not 9-mers.
-size_peptide <- nchar(as.character(neoantigen_affinity_select$peptide_wt), type = "chars", allowNA = FALSE, keepNA = NA)
+size_peptide <- nchar(as.character(neoantigen_affinity_select$peptide_wt), type = "chars", allowNA = FALSE)
 neoantigen_affinity_select <- neoantigen_affinity_select[size_peptide==9, ]
 
 MT <- neoantigen_affinity_select$peptide_mut
